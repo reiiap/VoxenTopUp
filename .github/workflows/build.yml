@@ -1,4 +1,4 @@
-lname: Build VoxenPhenomenon
+name: Build VoxenPhenomenon
 
 on:
   push:
