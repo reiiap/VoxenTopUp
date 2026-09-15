@@ -1,0 +1,47 @@
+# VoxenTopUp — seluruh teks broadcast mendukung MiniMessage dan warna legacy (&).
+settings:
+  debug: false
+  rank-detection:
+    enabled: true
+    verification-delay-ticks: 2
+    deduplication-window-seconds: 10
+  contract:
+    require-online-player: false
+  price-format:
+    rank: "Rp%price%"
+    contract: "Rp%price%"
+ranks:
+  prime: { enabled: true, display-name: "Prime", price: 10000 }
+  elite: { enabled: true, display-name: "Elite", price: 25000 }
+  royal: { enabled: true, display-name: "Royal", price: 50000 }
+contracts:
+  basic: { enabled: true, display-name: "Contract Book Basic", price: 15000 }
+  advanced: { enabled: true, display-name: "Contract Book Advanced", price: 30000 }
+broadcast:
+  rank:
+    enabled: true
+    lines:
+      - ""
+      - "<gradient:#8A2BE2:#00D4FF><bold>✦ VOXENSMP TOP UP ✦</bold></gradient>"
+      - "<white>Selamat kepada <yellow>%player%</yellow>!</white>"
+      - "<gray>Telah melakukan Top Up rank <rank>.</gray>"
+      - "<gold>◆ %prefix%</gold> <dark_gray>┃</dark_gray> <gray>Harga:</gray> <green>%price%</green>"
+      - "<dark_gray>Terima kasih telah mendukung VoxenSMP.</dark_gray>"
+      - ""
+  contract:
+    enabled: true
+    lines:
+      - ""
+      - "<gradient:#00E5FF:#7C4DFF><bold>✦ VOXENSMP TOP UP ✦</bold></gradient>"
+      - "<white>Selamat kepada <yellow>%player%</yellow>!</white>"
+      - "<gray>Telah melakukan Top Up <aqua>%contract%</aqua>.</gray>"
+      - "<dark_gray>┃</dark_gray> <gray>Harga:</gray> <green>%price%</green>"
+      - "<dark_gray>Terima kasih telah mendukung VoxenSMP.</dark_gray>"
+      - ""
+messages:
+  no-permission: "<red>Anda tidak memiliki permission untuk command ini.</red>"
+  unknown-contract: "<red>Buku kontrak tersebut tidak terdaftar.</red>"
+  contract-disabled: "<red>Buku kontrak tersebut sedang dinonaktifkan.</red>"
+  player-not-found: "<red>Pemain tidak ditemukan atau harus sedang online.</red>"
+  reload-success: "<green>Konfigurasi VoxenTopUp berhasil dimuat ulang.</green>"
+  invalid-usage: "<yellow>Penggunaan: /topup <nama_buku> <nick> atau /voxentopup reload</yellow>"

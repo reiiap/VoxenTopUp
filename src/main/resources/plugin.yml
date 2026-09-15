@@ -1,0 +1,22 @@
+name: VoxenTopUp
+version: '1.0.0'
+main: xyz.voxensmp.voxentopup.VoxenTopUp
+api-version: '1.21'
+authors: [VoxenSMP]
+description: Professional configurable top-up announcements for LuckPerms.
+depend: [LuckPerms]
+commands:
+  topup:
+    description: Announces a configured contract top-up.
+    usage: /topup <nama_buku> <nick>
+    permission: voxentopup.topup
+  voxentopup:
+    aliases: [vt]
+    description: Reloads VoxenTopUp configuration.
+    usage: /voxentopup reload
+    permission: voxentopup.reload
+permissions:
+  voxentopup.topup:
+    default: op
+  voxentopup.reload:
+    default: op
