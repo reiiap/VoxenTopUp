@@ -33,3 +33,6 @@ Semua line broadcast dan messages menerima MiniMessage; warna legacy seperti `&6
 Reload bersifat atomik pada runtime: konfigurasi baru divalidasi sebelum menggantikan konfigurasi aktif. Bila invalid, konfigurasi lama tetap digunakan dan console mencatat alasannya. Cache deduplikasi rank tetap hidup saat reload dan menekan pengumuman sama dalam window konfigurasi.
 
 Chat vanilla tidak dapat menampilkan PNG skin besar secara portabel. Karena itu broadcast menggunakan komponen Adventure, nama/prefix, dan visual Unicode yang kompatibel, tanpa NMS atau layanan eksternal. Aktifkan `settings.debug` untuk diagnosis command dan verifikasi group.
+
+### Verifikasi parent rank
+VoxenTopUp hanya membuat transaksi tertunda untuk command global yang tepat (`/lp` atau `/luckperms user <nick> parent set <group>` tanpa argumen context). Transaksi dikorelasikan dengan `NodeAddEvent` LuckPerms untuk inheritance node global. Sebagai fallback, plugin memuat user secara asynchronous dan memeriksa node inheritance global yang benar-benar terpasang. Perhitungan `primary group` tidak digunakan sebagai bukti transaksi, karena primary group dapat mengikuti strategi atau konteks LuckPerms yang berbeda dari parent yang baru ditetapkan.

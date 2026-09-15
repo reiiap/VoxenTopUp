@@ -33,6 +33,10 @@ public final class VoxenTopUp extends JavaPlugin {
         if (topup == null || root == null) throw new IllegalStateException("Commands missing from plugin.yml");
         topup.setExecutor(command); topup.setTabCompleter(command); root.setExecutor(command); root.setTabCompleter(command);
     }
+    @Override public void onDisable() {
+        if (rankService != null) rankService.close();
+    }
+
     public boolean reloadTopUpConfig() {
         try { reloadConfig(); TopUpConfig candidate = TopUpConfig.load(this); topUpConfig = candidate; rankService.setConfig(candidate); contractService.setConfig(candidate); return true; }
         catch (IllegalArgumentException ex) { getLogger().warning("Configuration reload rejected: " + ex.getMessage()); return false; }
